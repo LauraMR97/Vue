@@ -3,6 +3,7 @@
   <h2> {{ customTitle }} </h2>
 
   <p>{{ counter }} <sup>2</sup> = {{ squareCounter }}</p>
+  <p data-testid="counter">{{ counter }}</p>
 
 
     <div>
@@ -23,7 +24,7 @@ props: {
         type: Number,
         //required: true
         default: 100,
-        validator(value){
+        validator( value ){
             return value > 100
         }
     }

@@ -29,15 +29,20 @@ export default {
   },
   methods: {
     async getAnswer(){
+        try{
+            this.answer = 'Pensando...';
 
-    this.answer = 'Pensando...';
+            const { answer,image } = await fetch("https://yesno.wtf/api").then(r => r.json());
 
-    const { answer,image } = await fetch("https://yesno.wtf/api").then(r => r.json());
+            this.answer = answer =='yes' ? 'Si!' : 'No!';
 
-    this.answer = answer =='yes' ? 'Si!' : 'No!';
+            this.img = image;
 
-    this.img = image;
-    console.log(data);
+        }catch(error){
+          console.log('Indecision component', error);
+          this.answer = 'API error: No carga informacion'
+          this.img = null
+        }
 
     }
   },
@@ -46,6 +51,8 @@ export default {
      //console.log(value.includes('?')); 
 
      this.isValidQuestion = false;
+
+     console.log(value);
 
      if( !value.includes('?') ) return
 
