@@ -14,7 +14,8 @@ export default {
 props: {
   pokemons: {
     type: Array,
-    required: true
+    required: true,
+    default: true
   }
 }
 }

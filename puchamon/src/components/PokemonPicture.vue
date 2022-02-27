@@ -4,6 +4,7 @@
   :src="imgSrc" 
   alt="pokemon" 
   class="hidden-pokemon">
+            
 
     <img  v-else
   :src="imgSrc" 
@@ -17,7 +18,8 @@ export default {
     props:{
        pokemonId:{
         type: Number,
-        required: true
+        required: true,
+        default: 1
     },
     showPokemon:{
         type: Boolean,
